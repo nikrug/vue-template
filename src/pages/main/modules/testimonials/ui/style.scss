@@ -1,0 +1,296 @@
+@import "src/shared/styles";
+// blocks
+.testimonials{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -1rem;
+    padding: 1rem ;
+
+    text-align: center;
+
+    background-color: var(--bk-color);
+
+    background-position: center;
+   }
+   
+
+   .testimonials__collaboration-block{
+       display: block;
+       gap:2rem;
+   }
+   
+   .testimonials__collaboration-text-block{
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+    align-items: center;
+    justify-content: center;
+
+    margin: 9rem 0 5rem
+   }
+   
+   .testimonials__collaboration-image-block{
+    position: relative; 
+
+    margin: 6.5rem 0 3rem 10.5rem;
+   }
+
+   // elements
+   .testimonials__image{
+    width: 4.375rem;
+    height: 4.375rem;
+    }
+
+
+   .testimonials__button{
+        position: relative;
+      
+        display: block;
+        align-content: center;
+        width: 220px;
+        height: 44px;
+        margin-right: 0;
+        
+        padding: 0;
+      
+        --bg: var(--light-blue);
+        color: var(--light-blue);
+      
+        line-height: 120%;
+        text-align: center;
+      
+        border:1px solid var(--light-blue);
+        border-radius: 24px;
+      
+        @include font-styles('Quicksand',700, 16px, 24px, var(--pure-white));
+      
+        transition: background-color .15s ease;
+      
+        @include hover {
+          border-color:var(--blue);
+      
+          @include font-styles('Quicksand',700, 16px, 24px, var(--pure-white));
+      
+        }
+      
+        @include mobile-active {
+          --bg: var(--blue);
+        }
+
+   }
+
+   .testimonials__button:hover{
+        @include font-styles('Quicksand',none, none, none, var(--pure-white));
+    
+        background-color: var(--blue);
+        border-color: var(--blue);
+    
+   }
+   
+   .base-image {
+    display: block;
+   }
+
+
+   .hover-image {
+       position: absolute; /* Абсолютное позиционирование для наложенной картинки */
+       top: 11%;
+       left: 0;
+
+       transform: translate(-66%,30%); /* Смещаем элемент обратно на 50% его ширины и высоты */
+   }
+
+   // text
+   .testimonials__title-text{
+       @include font-styles('Nunito',700, none, none, var(--description-dark));
+       @include t-title;
+       margin-bottom: 3rem;
+   }
+   
+   .testimonials__sub-title-text{
+       @include font-styles('Quicksand',600, none, none, var(--light-blue));
+       @include t-sub-title;
+   }
+   
+   .testimonials__text{
+       @include font-styles('Quicksand',400, none, none, var(--description-light));
+       @include t-text;
+   }
+   
+   .testimonials__button-text{
+       @include font-styles('Quicksand',700, .75rem, 1.125rem, var(--pure-white));
+   }
+   
+   .testimonials__collaboration-title-text{
+       @include font-styles('Nunito',700, 1.75rem, 2.25rem, var(--description-dark));
+   }
+
+   .testimonials__overlay-image-1{
+    display: none;
+    }
+
+    .testimonials__overlay-image-2{
+        display: none;
+    }
+
+    .testimonials__overlay-image-3{
+        display: none;
+    }
+
+    .testimonials__overlay-image-4{
+        display: none;
+    }
+   
+   @media(min-width:#{$br-tablet}px) {
+       .testimonials__collaboration-block{
+           display: flex;
+           flex-direction: row-reverse;
+       }
+   
+       .testimonials__collaboration-text-block{
+            place-items: left;
+
+            max-width: 22.5rem;
+
+            margin: 11rem  4rem ;
+
+            text-align: left;
+       }
+
+       .testimonials__overlay-image-1{
+        display: none;
+        }
+
+        .testimonials__overlay-image-2{
+            display: none;
+        }
+
+        .testimonials__overlay-image-3{
+            display: none;
+        }
+
+        .testimonials__overlay-image-4{
+            display: none;
+        }
+
+   } 
+         
+   @media(min-width:#{$br-desktop}px){
+       .testimonials__button-text{
+           @include font-styles('Quicksand',700, 1rem, 1.5rem, var(--pure-white));
+       }
+       
+       .testimonials__collaboration-title-text{
+           @include font-styles('Nunito',700, 3.4375rem, 4.6875rem, var(--description-dark));
+       }
+       
+       .testimonials__collaboration-image-block{
+           position: relative; /* Устанавливаем контекст для абсолютного позиционирования */
+
+            margin:13rem 0 10rem 19rem;
+   
+       }
+
+       .slider {
+        position: relative;
+    
+        width: 100%;
+        margin-top: 2rem;
+        overflow: hidden;
+    
+        background-color: var(--pure-black);
+       }   
+
+     .base-image {
+        display: block;
+        width: 294px;
+        height: 288px;
+        margin: 3rem 1rem 1rem 9rem
+       }
+
+       .hover-image {
+        position: absolute; /* Абсолютное позиционирование для наложенной картинки */
+        top: 16%;
+        left: 15%;
+        z-index: 1;
+
+        width: 325px;
+        height: 288px;
+
+        transform: translate(-66%,30%); /* Смещаем элемент обратно на 50% его ширины и высоты */
+    }
+
+    .testimonials__collaboration-text-block{
+        display: flex;
+        flex-direction: column;
+        gap: 1.3rem;
+        align-items: start;
+        justify-content: start;
+    
+        margin: 0 ;
+        margin-top: 19rem;
+        margin-right: 6rem;
+       }
+
+    .testimonials__button{
+        @include button-style( 12.0625rem, 3rem,var(--light-blue),1px solid var(--light-blue),1.5rem);
+        @include font-styles('Quicksand',700, 1rem, 1.5rem, var(--pure-white));
+    }
+    
+    .testimonials{
+        gap: 1rem;
+        margin-bottom: 6.5rem;
+        padding: 0.7rem;
+    }
+    
+    .testimonials__title-text{
+        margin-bottom: 0;
+    }
+
+    .testimonials__overlay-image-1{
+        position: absolute;
+        right: 321px;
+        bottom: 351px;
+        z-index: 0;
+
+        display: block;
+    }
+
+    .testimonials__overlay-image-2{
+        position: absolute;
+        top: 10px;
+        left: 321px;
+        z-index: 0;
+
+        display: block;
+    }
+
+    .testimonials__overlay-image-3{
+        position: absolute;
+        right: 511px;
+        bottom: 170px;
+        z-index: 0;
+
+        display: block;
+    }
+
+    .testimonials__overlay-image-4{
+        position: absolute;
+        top: -10px;
+        left: 121px;
+        z-index: 0;
+
+        display: block;
+    }
+
+
+    .testimonials__image-container{
+        position: relative; /* Устанавливаем относительное позиционирование для контейнера */  
+    }
+
+
+
+
+}

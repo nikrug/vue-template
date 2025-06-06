@@ -1,0 +1,191 @@
+@import "src/shared/styles";
+// blokcs
+.portfolio{
+    display: flex;
+    flex-direction: column;
+    gap:0.5rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: -2rem;
+    padding: 0 1.5rem 4rem;
+
+   text-align: center;
+
+   background-color: var(--bk-color);
+   }
+   
+   .portfolio__image-blocks{
+    display: flex;
+    flex-direction: column;
+    gap:1.875rem;
+    align-items: center;
+    justify-content: center;
+   }
+
+   .portfolio__image {
+       position: relative; 
+   }
+   
+   .portfolio__image-block img {
+    width: 100%;
+    max-width: 330px; 
+    height: auto;
+    max-height: 300px;  
+   }
+
+   .potfolio__button{
+    @include button-style( 12.25rem, 2.75rem,var(--pure-white),1px solid var(--light-blue),3rem);
+    @include font-styles('Quicksand',700, 1rem, 1.5rem, var(--light-blue));
+    margin: 55px 0 44px;
+}
+
+.potfolio__button:hover{
+    @include font-styles('Quicksand',none, none, none, var(--blue));
+
+    background-color: var(--pure-white);
+    border-color: var(--blue);
+}
+
+   // text
+   .portfolio__title-text{
+       @include font-styles('Nunito',700, none, none, var(--description-dark));
+       @include t-title;
+   }
+   
+   .portfolio__sub-title-text{
+       margin-top: 3rem;
+
+       @include font-styles('Quicksand',600, none, none, var(--light-blue));
+       @include t-sub-title;
+   }
+   
+   .portfolio__text{
+       @include font-styles('Quicksand',400, none, none, var(--description-light));
+       @include t-text;
+       margin: 2.5rem 0 2rem;
+   }
+   
+   .portfolio__image-text{
+       @include font-styles('Quicksand',600, 1.5rem, 1.5rem, var(--pure-white));
+       position: absolute; /* Абсолютное позиционирование для текста */
+       bottom: 10px; /* Положение снизу */
+       left: 10px; /* Положение слева */
+
+       padding: 5px; /* Отступы вокруг текста */
+
+       text-align: left;
+
+       border-radius: 5px; /* Скругление углов */
+   }
+
+   
+   .portfolio__overlay-image-1{
+    display: none;
+}
+
+.portfolio__overlay-image-2{
+    display: none;
+}
+   
+   
+   @media(min-width:#{$br-tablet}px) {
+    .portfolio__image-block{
+        display: flex;
+        flex-direction: row;
+        gap:1rem;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+
+
+    }
+
+    .portfolio__overlay-image-1{
+        display: none;
+    }
+
+    .portfolio__overlay-image-2{
+        display: none;
+    }
+   } 
+         
+   @media(min-width:#{$br-desktop}px){
+       .portfolio__image-blocks{
+        display: flex;
+        flex-direction: row-reverse;
+        gap:3rem;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+        padding: 0;
+       }
+
+       .portfolio__image-block img {
+        display: flex;
+        width: 100%;
+        max-width: 400px; 
+        height: auto;
+        max-height: 400px;  
+       }
+
+       .portfolio{
+        display: flex;
+        flex-direction: column;
+        gap:1.375rem;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1rem;
+        padding: 0;
+    
+       text-align: center;
+    
+       background-color: var(--bk-color);
+       }
+
+       .portfolio__image-block{
+        display: flex;
+        flex-direction: row;
+        gap:1rem;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+
+       .potfolio__button{
+        @include button-style( 14.125rem, 3rem,var(--pure-white),1px solid var(--light-blue),3rem);
+        @include font-styles('Quicksand',700, 1rem, 1.5rem, var(--light-blue));
+        margin: 0 0 200px;
+
+    }
+
+        .portfolio__text{
+            width: 700px;
+            margin: .6rem 0;
+        }
+
+        .portfolio__overlay-image-1{
+            position: absolute;
+            top: 100px;
+            right: 120px;
+            z-index: 0;
+
+            display: block;
+        }
+    
+        .portfolio__overlay-image-2{
+            position: absolute;
+            bottom: 10px;
+            left: 400px;
+            z-index: 0;
+
+            display: block;
+        }
+    
+        .portfolio__image-container{
+            position: relative; /* Устанавливаем относительное позиционирование для контейнера */  
+        }
+   
+   }
+   
+   

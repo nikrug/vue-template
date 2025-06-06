@@ -1,0 +1,147 @@
+@import "src/shared/styles";
+
+.slider {
+    position: relative;
+
+    width: 100%;
+    overflow: hidden; // Это предотвращает показ элементов, выходящих за пределы слайдера
+    
+    background-color: var(--pure-black);
+    
+    .slider-wrapper {
+        display: flex;
+        flex-direction: row;
+
+        background-color: var(--pure-black);
+        
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .slider__text{
+        @include font-styles('Quicksand',400, none, none, var(--description-light));
+    }
+
+    .slider-item {
+        display: flex;
+        flex-direction: row;
+        
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        min-width: 100%; // Каждый слайд занимает 100% ширины
+
+        text-align: center;
+
+        background-color: var(--pure-black);
+    }
+}
+
+.slider__panel-block{
+    display: flex;
+    flex-direction: row;
+    gap:1rem;
+   }
+   
+
+.slider__pannel{
+    display: block;
+    grid-template-columns: repeat(2, 1fr);
+
+    
+    padding: 2rem 2rem 2rem 3rem;
+
+    text-align: left;
+
+    background-color: var(--testimonil-card-bk);
+    border:1px solid var(--testimonil-card-border);
+    border-radius: 1rem;
+ }
+
+ .slider__pannel-image{
+  display: flex;
+  flex-direction: row;
+  gap:2.2rem;
+  margin:0.2rem 0 2rem;
+ }
+ 
+ 
+ .slider__pannel-title-block{
+  margin:1rem 0;
+  
+  text-align: left;
+ }
+
+ .pannel__show{
+    display: none;
+}
+
+.pannel__show-tablet{
+ display: none;
+
+ }
+
+
+
+@media(min-width:#{$br-tablet}px) {
+    .pannel__show-tablet{
+       display: block;
+    }
+
+} 
+
+@media(min-width:#{$br-desktop}px){
+
+    
+
+    .slider {
+     position: relative;
+ 
+     width: 100%;
+     margin-top: 2rem;
+     overflow: hidden;
+ 
+     background-color: var(--pure-black);
+    }   
+
+    .slider__pannel{
+
+
+   
+  }
+
+ .slider__pannel-image{
+     margin: 1rem 0 0.1rem;
+ }
+
+
+}
+
+
+ 
+    .experiens__customer{
+        justify-content: center;
+        
+        padding: 1rem ;
+
+        text-align: center;
+
+
+        border-radius: .5rem;
+
+       }
+    
+    @media(min-width:#{$br-tablet}px) {
+        .experiens__title-text{
+
+       }
+
+  
+    }
+    
+    @media(min-width:#{$br-desktop}px){
+        .show-experiens-desctop{
+            display: block;
+        }
+
+        
+      }

@@ -1,0 +1,148 @@
+@import "@shared/styles";
+
+.footer {
+    padding: 1px;
+  
+    background-color: var(--footer-bk);
+    
+    &__container {
+      display: grid;
+      grid-template-rows: 1;
+      gap: 0;
+  
+    }
+  
+    &__copy {
+      text-align: right;
+    }
+  
+    &__body {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Первоначальная настройка для мобильного */
+      grid-auto-flow: dense;
+      // gap: 36px;
+  
+      // row-gap: 36px;
+      row-gap: 2.3rem;
+  
+      // white-space: nowrap;
+   
+      text-overflow: ellipsis;
+    }
+  }
+  
+  .footer__logo-top{
+    display: block;
+  
+  }
+  
+  /* Это правило применится ко всем блокам */
+  .footer__column {
+    @include font-styles('Quicksand',400, .875rem, 1.0625rem, white);
+    padding-left: 1rem;
+    display: flex; /* Или другой стиль по вашему выбору */
+    flex-direction: column; /* Элементы внутри колонки располагаются вертикально */
+  }
+
+
+.footer__column:nth-child(n+3) {
+    grid-column: span 2; /* Остальные элементы занимают всю ширину */
+}
+  
+  .footer__img-block{
+    display: flex;
+    gap: 1.6rem;
+    padding: 1rem;
+  
+    border-bottom: none;
+  }
+  
+  .footer__img-box{
+    display: flex;
+    flex-direction: row;
+  
+    align-items: center;
+    justify-content: center;
+    padding: 3.5rem 0 0;
+    
+    background-color: var(--footer-bk);
+  
+    border:3px solid var(--footer-bk);
+    border-bottom: 1px solid #f1dbb1;
+  }
+
+  .footer__q-btn{
+    padding: 1rem 0;
+ 
+  }
+  
+  .footer__img-box-text{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 0.3rem 5rem 1rem;
+  
+    background-color: var(--footer-bk);
+    border:3px solid var(--footer-bk);
+  
+  
+    @include font-styles('Quicksand',400, .875rem, 1.0625rem, white);
+  }
+  
+  
+  @media(min-width:768px) {
+  .footer__column:nth-child(n+3) {
+    grid-column: span 1; /* Остальные элементы занимают всю ширину */
+}
+    .footer__img-block{
+      border-bottom: 1px solid #f1dbb1;
+    }
+  
+    .footer__img-box{
+      width: 100%;
+  
+      border-bottom: none;
+    }
+  } 
+      
+  @media(min-width:1224px){
+    .footer__body {
+      grid-template-columns: repeat(4, 1fr); /* Четыре колонки для десктопа */
+  
+      white-space: normal;
+    }
+  
+    .footer__container{
+      max-width: 1900px;
+      margin: auto;
+    }
+  
+    .footer__logo-top{
+      display: grid;
+      grid-template-columns: 25% 68%;
+    }
+  
+    .footer__img-box{
+      gap: 2.8rem;
+  
+      padding: 1rem 4.4rem;
+    }
+  
+    .footer__img-block{
+      gap: 2.8rem;
+      
+      padding: 2.2rem 4rem 1rem;
+    }
+  .footer__column {
+    grid-column: span 1; /* Каждый блок занимает одну ячейку */
+    @include font-styles('Quicksand',400, .875rem, 1.0625rem, white);
+    padding: 5rem  0;
+  }
+  
+  .footer__img-box-text{
+    @include font-styles('Quicksand',400, 1.125rem, 1.375rem, white);
+    padding: 0 0.3rem 5rem 1rem;
+  }
+  
+  }

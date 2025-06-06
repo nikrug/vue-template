@@ -1,0 +1,9 @@
+.v-faid-enter-active,
+.v-faid-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.v-faid-enter-from,
+.v-faid-leave-to {
+  opacity: 0;
+}

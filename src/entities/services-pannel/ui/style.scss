@@ -1,0 +1,77 @@
+@import "src/shared/styles";
+
+    
+    // text
+    .servises__pannel-text{
+        @include font-styles('Quicksand',700, 1rem, 1.5rem,var(--description-dark));
+    }
+    
+    
+    // element
+    .servises__pannel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; 
+        width: 262px;
+        max-width: 262px;
+        height: 269px;
+        margin: 0 2rem 35px;
+        padding: 1rem 0;
+    
+        text-align: center;
+        
+        border: 1px solid var(--panel-border);
+        border-radius: 1.875rem;
+    
+        cursor: pointer;
+    
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавный переход для transform и box-shadow */
+    }
+    
+    .servises__pannel:hover {
+        box-shadow: 0 4px 15px var(--panel-border); /* Тень под панелью */
+        
+        transform: translateY(-5px); /* Поднятие панели вверх */
+    }
+    
+    .servises__image-container {
+        position: relative;
+       
+        margin-bottom: 1rem;
+    }
+    
+    .servises__image-background {
+        width: 100%; /* Масштабируем фоновое изображение по ширине контейнера */
+        height: auto; /* Сохраняем пропорции изображения */
+    }
+    
+    .servises__image-overlay {
+        position: absolute; /* Абсолютное позиционирование для наложенной картинки */
+        top: 50%; /* Устанавливаем верхнюю границу по центру контейнера */
+        left: 50%;
+    
+        width: 60%; /* Установите ширину наложенного изображения */
+        height: auto; /* Сохраняем пропорции наложенного изображения */
+    
+        transform: translate(-50%, -50%); /* Смещаем элемент обратно на 50% его ширины и высоты */
+       
+        pointer-events: none; /* Опционально, чтобы наложенное изображение не влияло на события мыши */
+    }
+    
+    
+          
+    @media(min-width:#{$br-desktop}px){
+
+        .servises__pannel-text{
+            @include font-styles('Quicksand',700, 1.5rem, 2.125rem,var(--description-dark));
+        }
+    
+        .servises__pannel{
+            width: none;
+            margin: 0;
+            padding: 0;
+            
+        }
+    
+    }

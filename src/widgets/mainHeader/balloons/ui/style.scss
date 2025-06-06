@@ -1,0 +1,48 @@
+@import "@shared/styles";
+// balloons
+.balloon-container {
+    position: absolute;
+    height: 500px;
+    width: 100%; // Укажите ширину контейнера
+    overflow: hidden;
+  }
+  
+  .balloon {
+    position: absolute;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+  }
+  
+  .balloon.blue {
+    background: linear-gradient(180deg, rgb(68 133 255 / 80%) 0%, #377DFF 100%);
+  }
+  
+  .balloon.red {
+    background: linear-gradient(180deg, #FF8E8E 0%, #F62424 100%);
+  }
+
+.balloon::after {
+    position: absolute;
+
+    bottom: -15px;
+    left: 50%;
+
+    width: 5px;
+
+    transform: translateX(-50%);
+
+    content: '';
+}
+
+@media(min-width:#{$br-tablet}px) {
+    .balloon-container {
+        position: absolute;
+        
+        height: 1000px;
+        width: 100%;
+    }
+
+  } 

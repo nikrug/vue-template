@@ -1,0 +1,296 @@
+@import "src/shared/styles";
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11999;
+
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    font-size: 2em;
+
+    background-color:var(--pure-white);
+
+
+}
+
+.header__slider-sub-title-text{
+    @include font-styles('Quicksand',400, 2rem, 2.5rem, var(--description-dark));
+}
+
+.header__slider-title-text{
+    @include font-styles('Quicksand',700, 2.5rem, 3rem, var(--description-dark));
+}
+
+.header__slider-text{
+    @include font-styles('Quicksand',400, 1.125rem, 1.125rem, var(--description-light));
+}
+
+.preloader__text-block{
+    z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    width: 252px;
+    height: 168px;
+    margin-left: -3rem;
+
+}
+
+.preloader__block{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--pure-white);
+}
+
+.preloader__text-bloc-bottom{
+    width: 431px;
+    height: 168px;
+    margin-left: 13rem;
+    
+}
+
+.preloader__image-block{
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-right: -8.5rem;
+    margin-left: 5rem;
+
+    background-color: var(--pure-white);
+}
+
+
+
+
+#content {
+    display: none; 
+
+    text-align: center;
+}
+
+.slide-in {
+    transform: translateX(-40%); /* Сдвинуть текст за пределы экрана */
+    opacity: 0;
+
+    animation: slide-in 1s forwards; /* Анимация с длительностью 0.5 секунды */
+
+    animation-delay: 3s; /* Задержка перед началом анимации */
+}
+
+.slide-in-bottom {
+    transform: translateX(-40%); /* Сдвинуть текст за пределы экрана */
+    opacity: 0;
+
+    animation: slide-in 1s forwards; /* Анимация с длительностью 0.5 секунды */
+    animation-delay: 4s; /* Задержка перед началом анимации */
+}
+
+.animated-image {
+    display: block; /* Убедитесь, что элемент отображается */
+
+    opacity: 0; /* Скрываем изображение в начале */
+
+    animation:  scaleUp 1s forwards, slide-and-shrink 1.5s forwards; /* Обе анимации */
+    animation-delay: 0.3s, 2s; /* Задержка для первой анимации: 2 секунды, затем 1.5 секунды для возможности scaleUp */
+}
+
+@keyframes scale-up {
+    0% {
+        transform: scale(0.3); /* Начальное состояние: масштаб 0 */
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.5); /* Завершающее состояние: нормальный масштаб */
+        opacity: 1;
+    }
+}
+
+@keyframes slide-and-shrink {
+    0% {
+        transform: translateX(0%) scale(0.5); /* Начальная позиция */
+        opacity: 1; /* Начальное состояние: невидимо */
+    }
+
+    100% {
+        transform: translateX(-30%) scale(0.3); /* Сдвинуть и уменьшить */
+        opacity: 1; /* Конечное состояние: видно */
+    }
+
+}
+
+
+@keyframes slide-in {
+    to {
+        transform: translateX(0); /* Вернуть текст в обычное положение */
+        opacity: 1; /* Полная непрозрачность */
+    }
+}
+
+@media(min-width:#{$br-desktop}px){
+    #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+    
+        display: flex;
+        flex-direction: column;
+        gap:2rem;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+      
+    
+        font-size: 2em;
+    
+        background-color:var(--pure-white);
+    
+        visibility: visible; /* Показать элемент */
+    }
+    
+    .header__slider-sub-title-text{
+        @include font-styles('Quicksand',400, 3.4375rem, 4.3125rem, var(--description-dark));
+    
+    }
+    
+    .header__slider-title-text{
+        @include font-styles('Quicksand',700, 4.3125rem, 5.1875rem, var(--description-dark));
+    
+    }
+    
+    .header__slider-text{
+        @include font-styles('Quicksand',400, 2rem, 2rem, var(--description-light));
+    
+    }
+    
+    .preloader__text-block{
+        z-index: 1000;
+    
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        justify-content: center;
+        width: 252px;
+        height: 168px;
+        margin-left: -3rem;
+    
+    }
+    
+    .preloader__block{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    
+        background-color: var(--pure-white);
+        
+    }
+    
+    .preloader__text-bloc-bottom{
+        width: 531px;
+        height: 168px;
+        margin: 0;
+    
+        text-align: center;
+    }
+    
+    .preloader__image-block{
+        z-index: 9999;
+    
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-right: -11rem;
+        margin-left: 5rem;
+    
+        background-color: var(--pure-white);
+    }
+    
+    
+    
+    #content {
+        display: none; 
+    
+        text-align: center;
+    }
+    
+    .slide-in {
+        transform: translateX(-90%); /* Сдвинуть текст за пределы экрана */
+    
+        opacity: 0;
+    
+        animation: slide-in 1s forwards; /* Анимация с длительностью 0.5 секунды */
+        animation-delay: 3s; /* Задержка перед началом анимации */
+    }
+    
+    .slide-in-bottom {
+        transform: translateX(-40%); /* Сдвинуть текст за пределы экрана */
+    
+        opacity: 0;
+    
+        animation: slide-in 1s forwards; /* Анимация с длительностью 0.5 секунды */
+        animation-delay: 4s; /* Задержка перед началом анимации */
+    }
+    
+    .animated-image {
+        display: block; /* Убедитесь, что элемент отображается */
+    
+        opacity: 0; /* Скрываем изображение в начале */
+    
+        animation:  scale-up 1s forwards, slide-and-shrink 1.5s forwards; /* Обе анимации */
+        animation-delay: 0.3s, 2s; /* Задержка для первой анимации: 2 секунды, затем 1.5 секунды для возможности scaleUp */
+    }
+    
+    @keyframes scale-up {
+        0% {
+            transform: scale(0.5); /* Начальное состояние: масштаб 0 */
+            opacity: 1;
+        }
+    
+        100% {
+            transform: scale(1); /* Завершающее состояние: нормальный масштаб */
+            opacity: 1;
+        }
+    }
+    
+    @keyframes slide-and-shrink {
+        0% {
+            transform: translateX(0%) scale(1); /* Начальная позиция */
+            opacity: 1; /* Начальное состояние: невидимо */
+    
+        }
+    
+        100% {
+            transform: translateX(-50%) scale(0.5); /* Сдвинуть и уменьшить */
+            opacity: 1; /* Конечное состояние: видно */
+        }
+    
+    }
+    
+    
+    @keyframes slide-in {
+        to {
+            transform: translateX(0); /* Вернуть текст в обычное положение */
+            opacity: 1; /* Полная непрозрачность */
+        }
+    }
+    
+      }

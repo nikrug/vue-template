@@ -1,0 +1,221 @@
+@import "src/shared/styles";
+// blocks
+.About {
+position: relative; // Или любое другое значение position
+
+display: flex;
+flex-direction: column;
+gap: 2rem;
+
+align-items: center;
+justify-content: center;
+
+padding:1rem;
+
+text-align: center;
+
+background-color: var(--bk-color);
+}
+
+.about__content{
+position: relative; 
+
+display: flex;
+flex-direction: column;
+gap: 1rem;
+
+align-items: center;
+
+justify-content: center;
+
+padding: 0.5rem 0.5rem 0.5rem 0.9rem;
+
+text-align: center;
+}
+
+.about__title-text-block{
+display: flex;
+flex-direction: column;
+gap:10px;
+margin: 6rem 1rem 2.5rem;
+margin-bottom: 1.5rem;
+
+text-align: center;
+}
+
+.about__img{
+    z-index: 1;
+
+    width: 340px;
+}
+
+.about__text-block{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0 17px 0 15px;
+
+  text-align: left;
+}
+
+.about__button-block{
+    display: flex;
+    flex-direction: row;
+    gap:35px;
+    margin: 2.5rem 0 2rem;
+    padding-left: 10px;
+}
+
+// elements
+.about__button-white{
+    @include button-style( none, 2.375rem,var(--pure-white),1px solid var(--light-blue),1.5rem);
+    @include font-styles('Quicksand',700, .75rem, 1.125rem, var(--light-blue));
+    display: flex; /* Используем флексбокс */
+    flex-direction: row;
+    gap:10px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px 12px;
+
+    white-space: nowrap;
+}
+
+.about__button-white:hover{
+    @include font-styles('Quicksand',none, none, none, var(--blue));
+
+    background-color: var(--pure-white);
+    border-color: var(--blue);
+}
+
+
+.about__button-white:hover svg path {
+    color: var(--blue);  /* Меняем цвет для текстовых элементов */
+
+    stroke: var(--blue);   /* Изменяем цвет для всех paths в SVG */
+
+}
+
+.about__button-blue{
+    @include button-style( 7.75rem, 2.375rem,var(--light-blue),1px solid var(--light-blue),1.5rem);
+    @include font-styles('Quicksand',700, .75rem, 1.125rem, var(--pure-white));
+    box-shadow: 0 4px 10px #377DFF;
+}
+
+.about__button-blue:hover{
+    background-color: var(--blue);
+    border-color: var(--blue);
+}
+
+// text
+.about__title-text{
+    @include font-styles('Nunito',700, none, none, var(--description-dark));
+    @include t-title;
+}
+
+.about__subtitle-text{
+    @include font-styles('Quicksand',600, none, none, var(--light-blue));
+    @include t-sub-title;
+}
+
+.about__text{
+    @include font-styles('Quicksand',400, none, none, var(--description-light));
+    @include t-text;
+}
+
+.about__overlay-image-1{
+    display: none;
+}
+
+
+.about__overlay-image-2{
+    position: absolute;
+    top: 390px;
+    right: 260px;
+    z-index: 0;
+
+    display: block;
+}
+
+@media (min-width: #{$br-tablet}px) {
+    .about__content{
+    flex-direction: row-reverse;
+    }
+
+    .about__overlay-image-1{
+        display: none;
+    }
+
+    .about__overlay-image-2{
+        display: none;
+    }
+
+} 
+  
+@media(min-width:#{$br-desktop}px){
+.about__text-block{
+    gap:4rem;
+    max-width: 600px;
+  }
+
+  .about__img{
+    z-index: 1;
+
+    width: 562px;
+    height: 402px;
+
+    border-radius: 24px;
+}
+
+.about__button-white{
+    @include button-style( 15.125rem, 3rem,var(--pure-white),1px solid var(--light-blue),1.5rem);
+    @include font-styles('Quicksand',700, 1rem, 1.5rem, var(--light-blue));
+    display: flex; /* Используем флексбокс */
+    flex-direction: row;
+    gap:10px;
+
+    justify-content: center;
+    padding:10px 25px 12px;
+}
+
+.about__button-blue{
+    @include button-style( 10.6875rem, 3rem,var(--light-blue),1px solid var(--light-blue),1.5rem);
+    @include font-styles('Quicksand',700, 1rem, 1.5rem, var(--pure-white));
+
+}
+
+.about__button-block{
+    display: flex;
+    flex-direction: row;
+    gap:35px;
+    margin: 1rem 0 2rem;
+    padding-left: 0;
+}
+
+.about__title-text-block{
+    margin: 9.5rem 1rem 1.5rem
+
+    }
+
+    .about__overlay-image-1{
+        position: absolute;
+        right: 510px;
+        bottom: 145px;
+        z-index: 0;
+
+        display: block;
+    }
+
+    .about__overlay-image-2{
+        position: absolute;
+        top: 140px;
+        right: -10px;
+        z-index: 0;
+
+        display: block;
+    }
+
+
+    .about__image-container{
+        position: relative; /* Устанавливаем относительное позиционирование для контейнера */  
+    }
+}

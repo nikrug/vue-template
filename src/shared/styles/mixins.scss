@@ -1,0 +1,125 @@
+@import "variables";
+
+@mixin br-mobile {
+  @media (width >= #{$br-mobile}px) {
+    @content
+  }
+}
+
+@mixin br-tablet {
+  @media (width >= #{$br-tablet}px) {
+    @content
+  }
+}
+
+@mixin br-desktop {
+  @media (width >= #{$br-desktop}px) {
+    @content
+  }
+}
+
+@mixin br-desktop-max {
+  @media (width >= #{$br-desktop-max}px) {
+    @content
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin mobile-active {
+  @media (hover: none) or (pointer: coarse) {
+    &:active {
+      @content;
+    }
+  }
+}
+
+
+@mixin text-overflow($count: 1) {
+  overflow: hidden;
+
+  @if $count > 1 {
+    display: -webkit-box;
+
+    -webkit-line-clamp: $count;
+    -webkit-box-orient: vertical;
+  } @else {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+@mixin infinite-grid($min: 1px) {
+  grid-template-columns: repeat(auto-fill, minmax($min, 1fr));
+}
+
+@mixin font-styles($font-family,$font-weight,$font-syze,$line-height,$color){
+  color:$color;
+  font-weight: $font-weight;
+  font-size: $font-syze;
+  font-family: $font-family,sans-serif;
+  line-height: $line-height;
+}
+
+@mixin button-style($width,$height,$bk-color,$border,$border-radius){
+  width: $width;
+  height: $height;
+
+  background-color: $bk-color;
+
+  border:$border; 
+  border-radius: $border-radius;
+  cursor: pointer;
+
+}
+
+@mixin t-title {
+  font-size: 1.5rem;
+  line-height: 2rem;
+
+  @media (min-width: #{$br-tablet}px) { // для планшетов
+      font-size: 1.5rem;
+      line-height: 2rem;
+  }
+
+  @media (min-width: #{$br-desktop}px) { // для больших настольных устройств
+      font-size: 3.4375rem;
+      line-height: 4.4375rem;
+  }
+}
+
+@mixin t-text {
+  font-size: .875rem;
+  line-height: 1.5rem;
+
+  @media (min-width: #{$br-tablet}px) { // для планшетов
+    
+  }
+
+  @media (min-width: #{$br-desktop}px) { // для больших настольных устройств
+    font-size:  1.25rem;
+    line-height: 2rem;
+  }
+
+  
+}
+
+@mixin t-sub-title {
+  font-size: .875rem;
+  line-height:1.0625rem;
+
+  @media (min-width: #{$br-tablet}px) { // для планшетов
+    
+  }
+
+  @media (min-width: #{$br-desktop}px) { // для больших настольных устройств
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+}

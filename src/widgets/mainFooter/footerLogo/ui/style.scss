@@ -1,0 +1,49 @@
+@import "@shared/styles";
+
+.footer-logo {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    width: 187px;
+    height: 88px;
+    margin: 3rem 0 5rem 1.5rem;
+  
+    background-color: #fff;
+  
+    border: 1px solid #fff;
+    border-radius: 20px;
+  
+    &__icon {
+      width: 55px;
+      height: 50px;
+      margin: 20px 0 20px 20px;
+    }
+  
+    &__text-box{
+      display: block;
+    }
+  
+    &__label {
+      @include font-styles('Quicksand',700, 20px, 24px, black);
+      white-space: nowrap;
+    }
+  
+    &__text {
+      @include font-styles('Quicksand',400, 16px, 20px, black);
+      white-space: nowrap;
+    }
+  }
+  
+  @media(min-width:#{$br-tablet}px) {
+    .footer-logo {
+  
+      margin: 3rem 0 5rem 1.5rem;
+    }
+    } 
+      
+  @media(min-width:#{$br-desktop}px){
+    .footer-logo {
+  
+      margin: 4.5rem 0 5rem 6.5rem;
+    }
+    }
