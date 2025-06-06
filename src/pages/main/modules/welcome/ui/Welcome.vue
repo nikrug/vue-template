@@ -34,7 +34,7 @@
               <div class="text-container">
                 <p class="welcome__overlay2-text" v-lng="'welcome_overlay2_text'">
                   “This team is really the best in its field, I don't regret working with them, and will come back again thanks.”
-                </p>
+                </p> 
               </div>
             </div>
   
