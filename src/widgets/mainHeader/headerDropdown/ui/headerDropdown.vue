@@ -96,7 +96,7 @@ export default defineComponent({
 
 .langg a{
     display: inline-block;
-    color:black;
+    color:var(--description-dark);
     font-size: 16px;
 }
 

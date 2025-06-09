@@ -50,7 +50,7 @@ import Popup from '../popUp/ui/popup.vue';
   @media (min-width: 1288px) {
   .lang a{
     display: inline;
-    color:black;
+    color:var(--description-dark);
     font-size: 16px;
   }
     .visible{

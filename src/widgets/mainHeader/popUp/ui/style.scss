@@ -16,7 +16,7 @@
   .popup-content {
     background: var(--pure-white);
     z-index: 22001;
-    padding: 90px 20px;
+    padding: 30px 20px;
     border-radius: 0px;
     overflow-y: auto;
     width: 100%;
@@ -30,9 +30,9 @@
     border: none;
     font-size: 35px;
     font-weight: 500;
-    position: absolute;
+    position: relative;
     cursor: pointer;
-    top: 15px;
+    left:160px;
     right: 25px;
   }
 

@@ -83,21 +83,21 @@ const errors = ref({
 // Валидация имени
 const validateName = (name: string) => {
   if (!name) {
-    return 'Имя обязательно.';
+    return 'Name requared';
   } else if (/^[а-яА-ЯёЁ]+$/i.test(name)) {
-    return 'Имя не должно содержать кириллицу.';
+    return '';
   }
-  return '';
+  return 'Name must not contain Cyrillic';
 };
 
 // Валидация электронной почты
 const validateEmail = (email: string) => {
   if (!email) {
-    return 'Электронная почта обязательна.';
+    return 'Email requared';
   } else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
-    return 'Недействительная электронная почта.';
+    return 'Invalid email';
   } else if (/[^a-zA-Z0-9@._-]/.test(email)) {
-    return 'Почта не должна содержать кириллицу.';
+    return 'Mail must not contain Cyrillic';
   }
   return '';
 };
@@ -105,7 +105,7 @@ const validateEmail = (email: string) => {
 // Валидация сообщения
 const validateMessage = (message: string) => {
   if (!message) {
-    return 'Сообщение обязательно';
+    return 'Message requared';
   }
   return '';
 };
