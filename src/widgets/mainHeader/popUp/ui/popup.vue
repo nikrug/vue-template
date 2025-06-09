@@ -2,26 +2,30 @@
   <button :class="customClass" @click="Popup = !Popup">{{buttonText}}</button>
     <Transition name="v-faid">
         <div v-show="Popup" class="popup-overlay" @mousedown="Popup = !Popup">
+        <form>
           <div class="popup-content" @mousedown.stop>
-            <button class="close-button" @click="Popup = !Popup">&times;</button>
+            <span class="close-button" @click="Popup = !Popup">&times;</span>
+            
             <p class="popup__title-text">Send us a message</p>
             <p class="popup__text">We move with make a Creative Strategy for help your business goal</p>
     
-            <div class="modal__email-name-container name-container">
-              <input name="name" type="text" id="name" class="name-input" placeholder=" " required autocomplete="off">
-              <label for="name">Your name</label>
+            <div :class="{ 'error-input': errors.name }" class="modal__email-name-container name-container">
+              <input name="name" type="text" id="username" class="name-input" placeholder=" " required  v-model="form.name">
+              <label :class="{ 'error': errors.name }" for="name">Your name</label>
+              <span v-if="errors.name" class="error-name-email">{{ errors.name }}</span>
             </div>
     
-            <div class="modal__email-name-container email-container">
-              <input name="email" type="email" id="email" class="email-input" placeholder=" " required autocomplete="off">
-              <label for="email">Email</label>
+            <div :class="{ 'error-input': errors.email }" class="modal__email-name-container email-container">
+              <input name="email" type="email" id="email" class="email-input" placeholder=" " required v-model="form.email">
+              <label :class="{ 'error': errors.email }" for="email">Email</label>
+              <span v-if="errors.email" class="error-name-email">{{ errors.email }}</span>
             </div>
     
-            <div class="modal__message-container message-container">
-              <textarea type="text" name="message" id="message" class="message-input" placeholder=" " required autocomplete="off"></textarea>
-              <label for="message">Your Message</label>
+            <div :class="{ 'error-input': errors.message }" class="modal__message-container message-container">
+              <textarea type="message" name="message" id="username" class="message-input" placeholder=" " required  v-model="form.message"></textarea>
+              <label :class="{ 'error': errors.message }" for="message">Your Message</label>
+              <span v-if="errors.message" class="error-message">{{ errors.message }}</span>
             </div>
-    
             <div class="modal__attach-block">
               <input
                 ref="fileInput"
@@ -40,15 +44,16 @@
                 <li v-for="(file, index) in files" :key="index">{{ file.name }}</li>
               </ul>
             </div>
-            <button type="submit" class="popup__button" >Send message</button>
+          <button type="submit" class="popup__button" >Send message</button>
           </div>
+        </form>
         </div>
     </Transition>
   </template>
   
 <script setup lang="ts">
-import { ref, defineProps } from 'vue';
-const Popup = ref(false);
+import { ref, defineProps, watch } from 'vue';
+
 const props = defineProps({
   customClass: {
     type: String,
@@ -60,9 +65,73 @@ const props = defineProps({
   },
 });
 
+const Popup = ref(false);
 const fileInput = ref<HTMLInputElement | null>(null);
 const files = ref<FileList | null>(null);
 
+const form = ref({
+  name: '',
+  email: '',
+  message:'',
+});
+const errors = ref({
+  name: '',
+  email: '',
+  message:'',
+});
+
+// Валидация имени
+const validateName = (name: string) => {
+  if (!name) {
+    return 'Имя обязательно.';
+  } else if (/^[а-яА-ЯёЁ]+$/i.test(name)) {
+    return 'Имя не должно содержать кириллицу.';
+  }
+  return '';
+};
+
+// Валидация электронной почты
+const validateEmail = (email: string) => {
+  if (!email) {
+    return 'Электронная почта обязательна.';
+  } else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+    return 'Недействительная электронная почта.';
+  } else if (/[^a-zA-Z0-9@._-]/.test(email)) {
+    return 'Почта не должна содержать кириллицу.';
+  }
+  return '';
+};
+
+// Валидация сообщения
+const validateMessage = (message: string) => {
+  if (!message) {
+    return 'Сообщение обязательно';
+  }
+  return '';
+};
+
+watch(
+  () => form.value.name,
+  (newName) => {
+    errors.value.name = validateName(newName);
+  }
+);
+
+watch(
+  () => form.value.message,
+  (newMessage) => {
+    errors.value.message = validateMessage(newMessage);
+  }
+);
+
+watch(
+  () => form.value.email,
+  (newEmail) => {
+    errors.value.email = validateEmail(newEmail);
+  }
+);
+
+// Обработка выбора файла
 const handleFileChange = () => {
   const fileList = fileInput.value?.files || null;
   if (fileList && fileList.length > 0) {
@@ -74,83 +143,34 @@ const handleFileChange = () => {
   }
 };
 
+// Открыть диалог выбора файла
 const AttachFile = () => {
   console.log("Кнопка нажата, открывается диалог выбора файла...");
   fileInput.value?.click(); // Открываем диалог выбора файла
 };
+
+// Отправка формы
+const submitForm = () => {
+  // Выполняем валидацию всех полей
+  errors.value.name = validateName(form.value.name);
+  errors.value.email = validateEmail(form.value.email);
+    errors.value.message = validateMessage(form.value.message);
+  // Проверяем наличие ошибок перед отправкой
+  if (!errors.value.name && !errors.value.email) {
+    // Логика отправки формы
+    console.log('Форма отправлена:', form.value);
+    if (files.value) {
+      console.log('Выбранные файлы:', files.value);
+    } else {
+      console.log('Файлы не выбраны.');
+    }
+  }
+};
 </script>
+
+
   
-  <style lang="scss" scoped>
+<style lang="scss" scoped>
   @import './style.scss';
-
-  .popup-overlay {
-    position: fixed;
-    z-index: 22001;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .popup-content {
-    background: var(--pure-white);
-    z-index: 22001;
-    padding: 90px 20px;
-    border-radius: 0px;
-    overflow-y: auto;
-    width: 100%;
-    height: 100%;
-  }
-  
-  
-  .close-button {
-    background: transparent;
-    color: var(--description-dark);
-    border: none;
-    font-size: 35px;
-    font-weight: 500;
-    position: absolute;
-    cursor: pointer;
-    top: 15px;
-    right: 25px;
-  }
-
-@media (min-width:#{$br-tablet}px) {
-  .popup-overlay {
-    position: fixed;
-    z-index: 2001;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .popup-content {
-    background: var(--pure-white);
-    padding: 2rem 2.5rem;
-    border-radius: 30px;
-    width: 640px;
-    min-width: 640px;
-    height: 721px;
-    height: fit-content;
-  }
-
-  .close-button {
-    font-size: 35px;
-    position: relative;
-    top: 0;
-    left: 250px;
-  }
-  }
-  </style>
+</style>
   

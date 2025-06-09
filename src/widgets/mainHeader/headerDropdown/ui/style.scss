@@ -1,1 +1,68 @@
 @import "@shared/styles";
+
+.dropdown {
+    position: absolute; // Оставляем абсолютное позиционирование
+    background-color: var(--pure-black); // Цвет фона
+    z-index: 1000; // Чтобы быть поверх других элементов
+    width: 100%; // Занимает всю ширину родителя
+    height: 100vh;
+    left: 0; // Прикрепляем к левой стороне
+    right: 0; // Прикрепляем к правой стороне
+    max-height: 0; // Изначально высота равна 0 (меню скрыто)
+    overflow: hidden; // Скрывем содержание, выходящее за пределы
+    transition: max-height 0.5s ease; // Плавный переход по высоте
+    overflow-y: auto;
+    &.show {
+    max-height: 1000px;
+    }
+}
+.nav-img{
+    gap: 1rem;
+    display: flex;
+    margin-left: 4rem;
+    padding: 3rem 0;
+}
+.dropdown-list {
+    list-style: none; // Убираем маркеры списка
+    padding: 20px; // Убираем внутренние отступы
+    margin: 0; // Убираем внешние отступы
+}
+
+.dropdown-list li {
+    padding: 10px 0; // Отступ для элементов списка
+    cursor: pointer; // Указатель на курсоре
+}
+
+.header-drop-menu__svg:hover path{
+  cursor: pointer;
+  
+ stroke:var(--blue-hover);
+}
+
+.dropdown-btn {
+    background-color: var(--pure-black); // Цвет кнопки
+    margin: 150px 0;
+
+}
+
+@media (min-width:1034px) {
+  .dropdown-list {
+      list-style: none; // Убираем маркеры списка
+      padding: 20px 0 0 100px; // Убираем внутренние отступы
+      margin: 0; // Убираем внешние отступы
+  }
+
+  .dropdown-list li {
+      padding: 10px 0; // Отступ для элементов списка
+      cursor: pointer; // Указатель на курсоре
+  }
+}
+
+@media (min-width:1290px) {
+    .dropdown {
+    display: none;
+  }
+    .burger {
+        display: none; // Скрываем бургер при ширине экрана более 1288px
+    }
+}

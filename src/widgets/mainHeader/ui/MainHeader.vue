@@ -14,9 +14,9 @@
         :to="link.link"
       />
       <q-space />
-
+      <div class="lang gtranslate_wrapper"></div>
+ 
       <Popup customClass="simple-btn header__button" buttonText="Contact Us"></Popup>
-
       <HeaderDropDown/>
     </q-toolbar>
   </q-header>
@@ -36,6 +36,9 @@ import Popup from '../popUp/ui/popup.vue';
 </script>
 
 <style>
+.lang a{
+  display: none;
+}
   .visible{
     visibility: hidden;
     display: none;
@@ -45,6 +48,11 @@ import Popup from '../popUp/ui/popup.vue';
     visibility: hidden;
   }
   @media (min-width: 1288px) {
+  .lang a{
+    display: inline;
+    color:black;
+    font-size: 16px;
+  }
     .visible{
     visibility: visible;
     display: flex;
