@@ -87,7 +87,7 @@ const validateName = (name: string) => {
   } else if (/^[а-яА-ЯёЁ]+$/i.test(name)) {
     return '';
   }
-  return 'Name must not contain Cyrillic';
+  return '';
 };
 
 // Валидация электронной почты

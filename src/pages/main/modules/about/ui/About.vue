@@ -39,3 +39,54 @@
 <style lang="scss" scoped>
 @import './style.scss';
 </style>
+
+<script lang="ts">
+// Файл: fadeIn.ts
+document.addEventListener('DOMContentLoaded', () => {
+  const fadeIns = document.querySelectorAll('.fade-in');
+
+  if (fadeIns.length === 0) {
+    console.log('Нет элементов с классом .fade-in');
+    return; // Ничего не делать, элементы не найдены
+  }
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.01
+  };
+
+  const observerCallback = (entries: IntersectionObserverEntry[]) => {
+    entries.forEach(entry => {
+      console.log('Entry:', entry); // Диагностика
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  fadeIns.forEach(element => {
+    observer.observe(element);
+  });
+});
+
+// CSS для плавного появления
+const style = document.createElement('style');
+style.textContent = `
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+document.head.appendChild(style);
+
+</script>

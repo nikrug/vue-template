@@ -2,7 +2,7 @@
     <div class="testimonials">
         <h2 class="testimonials__sub-title-text fade-in" lng="testimonials_subtitle">Testimonial</h2>
         <h2 class="testimonials__title-text fade-in" lng="testimonials_title">People Talk About Us</h2>
-        <div class="swiper">
+        <div class="swiper fade-in">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <slider />
@@ -24,12 +24,12 @@
                 </div>
             </div>
         </div>
-        <div class="testimonials__image-container">
+        <div class="testimonials__image-container  fade-in">
             <img class="testimonials__overlay-image-1" src="/images/testimonials/testimonials-dots.svg">
             <img class="testimonials__overlay-image-2" src="/images/testimonials/testimonials-dots.svg">
         </div>
-        <div class="testimonials__collaboration-block fade-in">
-            <div class="testimonials__collaboration-image-block">
+        <div class="testimonials__collaboration-block">
+            <div class="testimonials__collaboration-image-block  fade-in">
                 <img class="hover-image" src="/images/testimonials/testimonials-img-hover.png" alt="Hover Testimonial Image">
                 <img class="base-image" src="/images/testimonials/testimonials-img.png" alt="Base Testimonial Image">
                 <div class="testimonials__image-container">
@@ -37,12 +37,14 @@
                     <img class="testimonials__overlay-image-4" src="/images/testimonials/testimonials-dots-orange.svg">
                 </div>
             </div>
-            <div class="testimonials__collaboration-text-block">
-                <p class="testimonials__collaboration-title-text" lng="testimonials_colaboration_title">Interesting Collaboration With Us?</p>
-                <p class="testimonials__text" lng="testimonials_colaboration_text">Help you to reach your business goal</p>
-                <Popup customClass="header__button-start style-button" buttonText="Get Started"></Popup>
+            <div class="testimonials__collaboration-text-block ">
+                <p class="testimonials__collaboration-title-text fade-in" lng="testimonials_colaboration_title">Interesting Collaboration With Us?</p>
+                <p class="testimonials__text fade-in" lng="testimonials_colaboration_text">Help you to reach your business goal</p>
+                <Popup customClass="header__button-start style-button fade-in" buttonText="Get Started"></Popup>
             </div>
+
         </div>
+        
     </div>
 </template>
 

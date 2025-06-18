@@ -5,7 +5,7 @@
   <q-header>
     <q-toolbar class="header">
           <HeaderLogo/>
-      <q-btn class="visible"
+      <q-btn class="visiblee"
         v-for="link in navMenu"
         stretch
         flat
@@ -39,7 +39,7 @@ import Popup from '../popUp/ui/popup.vue';
 .lang a{
   display: none;
 }
-  .visible{
+  .visiblee{
     visibility: hidden;
     display: none;
   }
@@ -53,7 +53,7 @@ import Popup from '../popUp/ui/popup.vue';
     color:var(--description-dark);
     font-size: 16px;
   }
-    .visible{
+    .visiblee{
     visibility: visible;
     display: flex;
   }
