@@ -6,8 +6,8 @@
         <p class="servises__text" lng="services_text">
             We move with make a Creative Strategy for help your business goal, we help to improve your income by a services we have. make your content look interesting and make people look for your business
         </p>
-        <div class="read">
-            <div class="read__link">
+        <div class="servises__read">
+            <div class="servises__read-link">
             <a href="/project" lng="services_read" class="servises__read-text">Read More
                 <svg width="24" height="24" viewBox="0 0 24 24" fill='var(--pure-white)' xmlns="http://www.w3.org/2000/svg">
                     <path d="M15 18L21 12L15 6" stroke="var(--light-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

@@ -34,22 +34,28 @@
         <img class="about__img" src="/images/about/about-pic-big.png" alt="About Us" />
       </div>
     </div>
-  </template>
+</template>
 
 <style lang="scss" scoped>
 @import './style.scss';
 </style>
 
 <script lang="ts">
-// Файл: fadeIn.ts
-document.addEventListener('DOMContentLoaded', () => {
-  const fadeIns = document.querySelectorAll('.fade-in');
+import { defineComponent } from 'vue';
 
+export default defineComponent({
+  mounted() {
+    // Вызываем initFadeIn при первом рендере
+    initFadeIn();
+  },
+});
+
+const initFadeIn = () => {
+  const fadeIns = document.querySelectorAll('.fade-in');
   if (fadeIns.length === 0) {
     console.log('Нет элементов с классом .fade-in');
-    return; // Ничего не делать, элементы не найдены
+    return;
   }
-
   const observerOptions = {
     root: null,
     rootMargin: '0px',
@@ -57,36 +63,30 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const observerCallback = (entries: IntersectionObserverEntry[]) => {
-    entries.forEach(entry => {
-      console.log('Entry:', entry); // Диагностика
+    entries.forEach((entry: IntersectionObserverEntry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+        observer.unobserve(entry.target); // удаляем наблюдение
       }
     });
   };
 
   const observer = new IntersectionObserver(observerCallback, observerOptions);
-
   fadeIns.forEach(element => {
     observer.observe(element);
   });
-});
-
-// CSS для плавного появления
-const style = document.createElement('style');
-style.textContent = `
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-  }
-
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
-document.head.appendChild(style);
-
+};
 </script>
+
+<style>
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>

@@ -11,7 +11,7 @@
               <p class="welcome__title-text-gray" v-lng="'welcome_text'">
                 when you need us to improve your business, then come with us to help your business reach it, you just sit and feel that goal.
               </p>
-              <Popup customClass="header__button-start style-button" buttonText="Start Project"></Popup>
+              <Popup customClass="header__button-start" buttonText="Start Project"></Popup>
             </div>
           </div>
           <div class="image-container">

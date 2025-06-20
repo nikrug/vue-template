@@ -24,7 +24,6 @@
 </template>
 
 <script setup lang="ts">
-import './style.scss';
 
 import { navMenu } from '../config/navMenu';
 import HeaderLogo from 'src/widgets/mainHeader/headerLogo/ui/HeaderLogo.vue';
@@ -35,7 +34,24 @@ import Popup from '../popUp/ui/popup.vue';
 
 </script>
 
-<style>
+<style lang="scss">
+@import './style.scss';
+.header__button-start{
+    z-index: 1;
+
+    padding: 0.5rem 0;
+
+    @include button-style( 9rem, 2.375rem,var(--light-blue),1px solid var(--light-blue),3rem);
+    @include font-styles('Quicksand',700, .75rem, 1.125rem, var(--pure-white));
+    box-shadow: 0 4px 10px #377DFF;
+
+}
+
+
+.header__button-start:hover{
+    @include button-style( 9rem, 2.375rem,var(--blue),1px solid var(--blue),3rem);
+
+}
 .lang a{
   display: none;
 }
@@ -48,6 +64,19 @@ import Popup from '../popUp/ui/popup.vue';
     visibility: hidden;
   }
   @media (min-width: 1288px) {
+  .header__button-start{
+        @include button-style( 12.5625rem, 3rem,var(--light-blue),1px solid var(--light-blue),3rem);
+        @include font-styles('Quicksand',700, 1rem, 1.125rem, var(--pure-white));
+        margin-top: 0;
+        margin-bottom: 0;
+   
+        padding: 0.8rem 0;
+    }
+
+    .header__button-start:hover{
+        @include button-style(12.5625rem, 3rem,var(--blue),1px solid var(--blue),3rem);
+      
+    }
   .lang a{
     display: inline;
     color:var(--description-dark);

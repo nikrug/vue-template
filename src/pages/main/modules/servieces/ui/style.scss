@@ -119,16 +119,16 @@
     
         background-color: transparent; /* Прозрачный фон */
     }
-    .read__link{
+    .servises__read-link{
         display: flex;
         align-items: anchor-center;
         gap: 1rem;
     }
-    .read__link:hover * {
+    .servises__read-link:hover * {
         color: var(--blue);  /* Меняем цвет для текстовых элементов */
     }
     
-    .read__link:hover svg path {
+    .servises__read-link:hover svg path {
         stroke: var(--blue);   /* Изменяем цвет для всех paths в SVG */
     
     }
@@ -140,7 +140,7 @@
             display: flex;
         }
     
-        .read{
+        .servises__read{
             justify-content:end;
     
         }
@@ -190,7 +190,7 @@
         }
     
     
-        .read{
+        .servises__read{
             gap: 1rem;
             height: 100px;
         }

@@ -54,9 +54,6 @@
   
     }
   
-    .popup__form-text{
-      @include font-styles('Quicksand',700, 1rem,1.5rem, var(--blue));
-    }
   
     .modal__email-name-container {
       display: flex;
